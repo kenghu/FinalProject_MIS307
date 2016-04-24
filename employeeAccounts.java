@@ -42,7 +42,7 @@ public class employeeAccounts {
 	{
 		ArrayList<String> empLastName = new ArrayList<String>();
 		ArrayList<String> empFirstName = new ArrayList<String>();
-		ArrayList<Integer> empSSN = new ArrayList<Integer>();
+		ArrayList<String> empSSN = new ArrayList<String>();
 		ArrayList<String> address = new ArrayList<String>();
 		ArrayList<String> maritalStatus = new ArrayList<String>();
 		ArrayList<Double> empHourlyRate = new ArrayList<Double>();
@@ -79,14 +79,14 @@ public class employeeAccounts {
 	 * @return the account with the given number, or null if there
 	 * is no such account
 	 */
-	public employeeAccount find(int empSSN)
+	public employeeAccount find(String empSSN)
 	{
 		for (employeeAccount a : accounts)
 		{
-			if (a.getEmployeeSSN() == empSSN)
+			if (a.getEmployeeSSN().equals(empSSN))
 				return a;
 		} 
-		throw new IllegalArgumentException("SSN: " + empSSN + " was not found in the company");
+		return null;
 	}
 	
 	/**
@@ -98,7 +98,7 @@ public class employeeAccounts {
 		int counter = 1;
 		ArrayList<String> empLastName = new ArrayList<String>();
 		ArrayList<String> empFirstName = new ArrayList<String>();
-		ArrayList<Integer> empSSN = new ArrayList<Integer>();
+		ArrayList<String> empSSN = new ArrayList<String>();
 		ArrayList<String> address = new ArrayList<String>();
 		ArrayList<String> maritalStatus = new ArrayList<String>();
 		ArrayList<Double> empHourlyRate = new ArrayList<Double>();
@@ -113,7 +113,7 @@ public class employeeAccounts {
 				empFirstName.add(employeeFirstName.trim());
 			}
 			if (counter%7==3){
-				int employeeSSN = in.nextInt();
+				String employeeSSN = in.next();
 				empSSN.add(employeeSSN);
 			}
 			if (counter%7==4){
@@ -137,12 +137,11 @@ public class employeeAccounts {
 		for(int i = 0; i < empLastName.size() && i < empFirstName.size() && i < empSSN.size() && i < address.size() && i < maritalStatus.size() && i < empHourlyRate.size() && i < empHours.size();i++){
 			String employeeLastName = empLastName.get(i);
 			String employeeFirstName = empFirstName.get(i);
-			int employeeSSN = empSSN.get(i);
+			String employeeSSN = empSSN.get(i);
 			String empAddress = address.get(i);
 			String empStatus = maritalStatus.get(i);
 			double rate = empHourlyRate.get(i);
-			double hours = empHours.get(i);
-			employeeAccount newAccount = new employeeAccount(employeeLastName, employeeFirstName, employeeSSN, empAddress, empStatus, rate, hours);
+			employeeAccount newAccount = new employeeAccount(employeeLastName, employeeFirstName, employeeSSN, empAddress, empStatus, rate);
 			addAccount(newAccount);
 		}
 	}

@@ -11,23 +11,27 @@ package TeamProject;
 public class employeeAccount {
 	private String empLastName;
 	private String empFirstName;
-	private  final int empSSN;
+	private String empSSN;
 	private String address;
 	private String maritalStatus;
 	private double empHourlyRate;
-	private double empHour;
+	private double empHour = 0;
 	
 	/**
 	 * Constructs an employeeAccount with empName, healthcare type, empNumber, basic monthly salary, current balance, empSale, empHourlyRate and employee worked hours.
 	 */
-	public employeeAccount(String _empLastName, String _empFirstName, int _empSSN, String _address, String _maritalStatus, double _empHourlyRate, double _empHour){  
+	public employeeAccount(String _empLastName, String _empFirstName, String _empSSN, String _address, String _maritalStatus, double _empHourlyRate){  
 	      empLastName = _empLastName;
 	      empFirstName = _empFirstName;
 	      empSSN = _empSSN;
 	      address = _address;
 	      maritalStatus = _maritalStatus;
 	      empHourlyRate = _empHourlyRate;
-	      empHour = _empHour;
+	}
+	public void addHour(double a )
+	{
+		empHour= empHour +a ;
+		System.out.println("Hours have been added, the total employee hour for this employee is " + empHour);
 	}
 	
 	/**
@@ -50,7 +54,7 @@ public class employeeAccount {
 	 * Get the employee's SSN
 	 * @return the SSN of employee
 	 */
-	public int getEmployeeSSN(){
+	public String getEmployeeSSN(){
 		return empSSN;
 	}
 	
@@ -121,6 +125,6 @@ public class employeeAccount {
 	 */
 	public String toString()
 	   {
-		   return "Employee Name(LastFirst): " + empLastName +" " + empFirstName + " Employee SSN: " + empSSN + " Address: " + address + " Marital Status: " + maritalStatus + " Employee Hourly Rate: " + empHourlyRate + " Employee Worked Hours: " + empHour;
+		   return "Employee Name(LastFirst): " + empLastName +" " + empFirstName + " Employee SSN: " + empSSN + " Address: " + address + " Marital Status: " + maritalStatus + " Employee Hourly Rate: " + empHourlyRate + " Employee cumulative Worked Hours: " + empHour;
 	   }
 }
