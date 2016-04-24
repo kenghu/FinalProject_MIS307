@@ -34,21 +34,20 @@ public class payrollProgram {
 				if (input.equals("A"))
 				{
 					int eSSN = promptForInt(in, "Enter new employee SSN: ");
-					/*if (newAccounts.find(eSSN) != null)
+					if (newAccounts.find(eSSN) != null)
 					{
 						System.out.printf("Error: account %d already exists.\n", eSSN);
 					}
 					else
 					{
-					*/
 						System.out.println("Enter employee last name: ");
-						String eLastName = in.next();
+						String eLastName = in.nextLine();
 						System.out.println("Enter employee first name: ");
-						String eFirstName = in.next();
+						String eFirstName = in.nextLine();
 						System.out.println("Enter employee address: ");
-						String eAddress = in.next();
+						String eAddress = in.nextLine();
 						System.out.println("Enter employee martial status: ");
-						String eMaritalStatus = in.next();
+						String eMaritalStatus = in.nextLine();
 						System.out.println("Enter employee hourly rate: ");
 						double eHourlyRate = in.nextDouble();
 						System.out.println("Enter employee hours: ");
@@ -57,7 +56,7 @@ public class payrollProgram {
 						newAccounts.addAccount(newAccount);
 						newAccounts.writeAccount(filename);
 					}
-				//}
+				}
 				else if (input.equals("D"))
 				{
 					int eSSN = promptForInt(in, "Enter employee SSN for delete: ");
@@ -71,8 +70,8 @@ public class payrollProgram {
 						System.out.println("Sure want to remove the employee below?");
 						System.out.println(account.toString());
 						System.out.println("Enter 'YES' to remove");
-						String answer = in.nextLine();
-						if (answer.equalsIgnoreCase("YES")){
+						String answer1 = in.nextLine();
+						if (answer1.equalsIgnoreCase("YES")){
 							newAccounts.removeAccount(account);
 							System.out.println("Employee removed");
 						}
@@ -90,7 +89,32 @@ public class payrollProgram {
 					else
 					{
 						System.out.println("Found Employee");
+						System.out.println();
 						System.out.println(account.toString());
+						System.out.println();
+						System.out.println("Enter 'YES' to start payroll calculation");
+						String answer2 = in.nextLine();
+						if (answer2.equalsIgnoreCase("YES")){
+							System.out.println("Enter employee hourly rate: ");
+							double hourlyRate = in.nextDouble();
+							System.out.println("Enter employee worked hours: ");
+							double hourWorked = in.nextDouble();
+							System.out.println("Enter employee healthcare rate: ");
+							double healthRate = in.nextDouble();
+							System.out.println("Enter State rate: ");
+							double stateRate = in.nextDouble();
+							System.out.println("Enter employee marital status (Single/Married): ");
+							String maritalAnswer = in.next();
+							
+							if (maritalAnswer.equalsIgnoreCase("Single")){
+								
+								
+							}
+							else if (maritalAnswer.equalsIgnoreCase("Married")){
+								
+							}
+							
+						}
 						//calculation part from here
 					}
 				}
@@ -105,12 +129,7 @@ public class payrollProgram {
 		}
 	}
 	
-	/**
-	 * Ask the user for an integer input. Repeat until successful.
-	 * @param in Scanner for reading input
-	 * @param prompt String to show to user
-	 * @return value entered by user
-	 */
+	
 	public static int promptForInt(Scanner in, String prompt)
 	{
 		int result = 0;

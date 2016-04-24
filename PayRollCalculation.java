@@ -1,11 +1,12 @@
-package FinalProjectMIS307;
+package TeamProject;
 
-public class PayRollCalculation {
+public class payrollCalculation {
 	private String name;
 	private double emHourlyRate;
 	private double emHour;
 	private double healthCareRate;
 	private double taxRate;
+	private double dealthCareRate;
 	private double socialSecurityRate;
 	private double federalRate;
 	private double stateRate;
@@ -19,7 +20,7 @@ public class PayRollCalculation {
 	final double stateEight = 69255/52; //highest state tax bracket
 	
 	
-	public PayRollCalculation(String name_P, double hourlyRate, double hour, double healthCare_P, double taxRate_P,double socialSecurityRate_P, double federalRate_P,double stateRate_P)
+	public payrollCalculation(String name_P, double hourlyRate, double hour, double healthCare_P, double taxRate_P,double socialSecurityRate_P, double federalRate_P,double stateRate_P)
 	{
 		name = name_P;
 		emHourlyRate = hourlyRate;
