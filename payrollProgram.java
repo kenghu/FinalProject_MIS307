@@ -5,7 +5,7 @@
  */
 
 
-package TeamProject;
+package FinalProjectMIS307;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -115,12 +115,23 @@ public class payrollProgram {
 							System.out.println("report");
 							String name = account.getEmployeeFirstName() + ", " + account.getEmployeeLastName();
 							calculation.report(name);
-						}
-						
+							System.out.println("Do you want to take a look on the check? Enter Yes if you want to do it");
+							String answer3 = in.nextLine();
+							if(answer3.equalsIgnoreCase("YES"))
+							{
+								System.out.println("Please enter the payment String(Payment: "+calculation.netPay()+")");
+								String paymentString = in.nextLine();
+								System.out.println("Enter the date");
+								String date = in.nextLine();
+								ProcessCheck check = new ProcessCheck(account.getEmployeeFirstName(),account.getEmployeeLastName(),calculation.netPay(),paymentString,date);
+								check.printCheck();
+									
+										}
+							}
 						
 					}
 					in.nextLine();
-				}
+					}
 				else if (input.equals("Q"))
 				{
 					done = true;
