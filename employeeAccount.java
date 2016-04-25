@@ -38,7 +38,7 @@ public class employeeAccount {
 	public void addHour(double hour )
 	{
 		empHour= empHour +hour ;
-		System.out.println("Hours have been added. Hour: " + empHour);
+		System.out.println("Hours have been added. Hours: " + empHour);
 	}
 	
 	/**
@@ -152,6 +152,6 @@ public class employeeAccount {
 	 */
 	public String toString()
 	   {
-		   return "Employee Name(LastFirst): " + empLastName +" " + empFirstName + " Employee SSN: " + empSSN + " Address: " + address + " Marital Status: " + maritalStatus + " Employee Hourly Rate: " + empHourlyRate + " Employee cumulative Worked Hours: " + empHour;
+		   return "Employee Name(Last First): " + empLastName +" " + empFirstName + " Employee SSN: " + empSSN + " Address: " + address + " Marital Status: " + maritalStatus + " Employee Hourly Rate: " + empHourlyRate + " Employee cumulative Worked Hours: " + empHour;
 	   }
 }

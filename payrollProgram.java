@@ -17,7 +17,7 @@ import java.util.Scanner;
 
 public class payrollProgram {
 	public static void main(String args[]) throws FileNotFoundException, IOException{
-		System.out.println("Welcome to the payroll system for IOWA");
+		System.out.println("Welcome to The Iowa Payroll System");
 		Scanner in = new Scanner(System.in);
 		System.out.print("Enter file name: ");
 		String filename = in.nextLine();
@@ -30,6 +30,7 @@ public class payrollProgram {
 		{
 			try
 			{
+				System.out.println();
 				System.out.println("A)dd Employee  E)dit Employee  D)elete Employee  S)earch Employee  Q)uit");
 				String input = in.nextLine().toUpperCase();
 				
@@ -52,14 +53,14 @@ public class payrollProgram {
 						String eFirstName = in.nextLine();
 						System.out.println("Enter employee address: ");
 						String eAddress = in.nextLine();
-						System.out.println("Enter employee martial status: ");
+						System.out.println("Enter employee marital status: ");
 						String eMaritalStatus = in.nextLine();
 						System.out.println("Enter employee hourly rate: ");
 						double eHourlyRate = in.nextDouble();
 						employeeAccount newAccount = new employeeAccount(eLastName, eFirstName, eSSN, eAddress, eMaritalStatus, eHourlyRate);
 						newAccounts.addAccount(newAccount);
 						newAccounts.writeAccount(filename);
-						System.out.println("Employee added");
+						System.out.println("Employee Information Added");
 					
 					}
 					in.nextLine();
@@ -80,26 +81,26 @@ public class payrollProgram {
 					{
 						System.out.println("Employee Found");
 						System.out.println(account.toString());
-						System.out.println("Enter employee new Last Name: ");
+						System.out.println("Enter employee new last name: ");
 						String newLastName = in.nextLine();
 						account.employeeLastNameChange(newLastName);
-						System.out.println("Enter employee new First Name: ");
+						System.out.println("Enter employee new first name: ");
 						String newFirstName = in.nextLine();
 						account.employeeFirstNameChange(newFirstName);
 						String empSSN = account.getEmployeeSSN();
-						System.out.println("Enter employee new Address: ");
+						System.out.println("Enter employee new address: ");
 						String newAddress = in.nextLine();
 						account.employeeAddressChange(newAddress);
-						System.out.println("Enter employee new Maritial Status: ");
+						System.out.println("Enter employee new marital status: ");
 						String newStatus = in.nextLine();
 						account.employeeMaritialStatusChange(newStatus);
-						System.out.println("Enter employee new Hourly Rate: ");
+						System.out.println("Enter employee new hourly rate: ");
 						double newHourlyRate = in.nextDouble();
 						account.employeeHourlyRateChange(newHourlyRate);
 						employeeAccount newAccount = new employeeAccount(newLastName, newFirstName, eSSN, newAddress, newStatus, newHourlyRate);
 						newAccounts.addAccount(newAccount);
 						newAccounts.writeAccount(filename);
-						System.out.println("Employee Changed");
+						System.out.println("Employee Information Changed");
 						
 					}
 					in.nextLine();
@@ -125,7 +126,7 @@ public class payrollProgram {
 						String answer1 = in.nextLine();
 						if (answer1.equalsIgnoreCase("YES")){
 							newAccounts.removeAccount(account);
-							System.out.println("Employee removed");
+							System.out.println("Employee Information Removed");
 						}
 						
 					}
@@ -147,10 +148,8 @@ public class payrollProgram {
 					else
 					{
 						System.out.println("Found Employee");
-						System.out.println();
 						System.out.println(account.toString());
-						System.out.println();
-						
+					
 						/*
 						 * Compute the payroll 
 						 */
@@ -158,7 +157,7 @@ public class payrollProgram {
 						System.out.println("Enter 'YES' to start payroll calculation");
 						String answer2 = in.nextLine();
 						if (answer2.equalsIgnoreCase("YES")){
-							System.out.println("Enter employee worked hours: ");
+							System.out.println("Enter employee worked hours in this pay period: ");
 							double hourWorked = in.nextDouble();
 							account.addHour(hourWorked);
 							newAccounts.writeAccount(filename);
@@ -171,9 +170,12 @@ public class payrollProgram {
 							calculation.socialSecurityPay();
 							calculation.federalPay();
 							calculation.netPay();
-							System.out.println("report");
+							System.out.println();
+							System.out.println("***************PAYROLL REPORT***************");
 							String name = account.getEmployeeFirstName()  +" "+ account.getEmployeeLastName();
 							calculation.report(name);
+							System.out.println("********************************************");
+							System.out.println();
 							
 							/*
 							 * Get the check after calculation
@@ -184,7 +186,7 @@ public class payrollProgram {
 							if(answer3.equalsIgnoreCase("YES"))
 							{
 								in.nextLine();
-								System.out.println("Please enter the payment in words (Payment: ");
+								System.out.println("Please enter the payment in words Payment: ");
 								System.out.printf("%.2f",calculation.netPay());
 								String paymentString = in.nextLine();
 								System.out.println("Enter the date");

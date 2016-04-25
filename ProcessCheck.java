@@ -1,6 +1,6 @@
 /**
  * Author: Amin Raouf Ghali
- * Developer: Keng Hu
+ * Developer: Keng Hu£¬ Benjamin Turkett
  * Implementation Date: 4-22-2016
  * Completion Date: 4-25-2016
  * Description of Class: Print check for payroll program.
@@ -71,12 +71,12 @@ public class ProcessCheck {
 		a3 = a3+" ";
 	System.out.println("*"+a3+"*");
 	String a4 = "*  "+paymentString;
-	String b4 = "Dollars";
+	String b4 = " Dollars";
 	String c4 = "";
-	for(int i =0;i<= 80-a4.length();i++)
+	for(int i =0;i<= 90-a4.length();i++)
 		c4 = c4+" ";
 	String c5 = "";
-	for(int i = 0; i < 20-b4.length()-1;i++)
+	for(int i = 0; i < 10-b4.length()-1;i++)
 		c5 = c5+" ";
 	System.out.println(a4+c4+b4+c5+"*");
 	System.out.println("*"+a3+"*");

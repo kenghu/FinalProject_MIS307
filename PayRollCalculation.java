@@ -250,24 +250,24 @@ public class PayRollCalculation {
 	}
 	public void report(String name)
 	{
-		System.out.println("Employee Name: "+name);
-		System.out.println("Gross Pay: " + emHourlyRate * emHour);
-		System.out.print("Social Security Payment: ");
+		System.out.println("Employee Name (First Last): "+name);
+		System.out.println("Gross Pay: $" + emHourlyRate * emHour);
+		System.out.print("Social Security Payment: $");
 		System.out.printf("%.2f", socialSecurityPay());
 		System.out.println();
-		System.out.print("Health care Payment: ");
+		System.out.print("Health care Payment: $");
 		System.out.printf("%.2f", medicarePay());
 		System.out.println();
-		System.out.print("Federal Payment: ");
+		System.out.print("Federal Payment: $");
 		System.out.printf("%.2f", federalPay());
 		System.out.println();
-		System.out.print("State Tax Payment: ");
+		System.out.print("State Tax Payment: $");
 		System.out.printf("%.2f", statePay());
 		System.out.println();
-		System.out.print("Gross Payment: ");
+		System.out.print("Gross Payment: $");
 		System.out.printf("%.2f", GrossPay());
 		System.out.println();
-		System.out.print("Net Payment: ");
+		System.out.print("Net Payment: $");
 		System.out.printf("%.2f", netPay());
 		System.out.println();
 	}
