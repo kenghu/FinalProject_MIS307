@@ -1,11 +1,12 @@
 /**
 	Author: Xiaoxian Si && Keng Hu
 	Implementation Date: 4-17-2016
-	Description of Class: The class manages a collection of employee accounts.
+	Completion Date: 4-25-2016
+	Description of Class: This class manages a collection of employee accounts.
  */
 
 
-package FinalProjectMIS307;
+package TeamProject;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class employeeAccounts {
 	}
 	
 	/**
-	 * Adds an account to this company.
+	 * Add an account to this company.
 	 * @param a the account to add
 	 */
 	public void addAccount(employeeAccount a){
@@ -37,6 +38,13 @@ public class employeeAccounts {
 	public void removeAccount(employeeAccount a){
 		accounts.remove(a);
 	}
+	
+	/**
+	 * Write information on the file
+	 * @param fileName
+	 * @throws FileNotFoundException
+	 */
+	
 	public void writeAccount(String fileName) throws FileNotFoundException
 	{
 		ArrayList<String> empLastName = new ArrayList<String>();
@@ -69,13 +77,11 @@ public class employeeAccounts {
 		}
 		out.close();
 	}
-
-
 	
 	/**
 	 * Finds a employee account with a given number.
-	 * @param empNumber the number to find
-	 * @return the account with the given number, or null if there
+	 * @param empSSN the number to find
+	 * @return the account with the given SSN, or null if there
 	 * is no such account
 	 */
 	public employeeAccount find(String empSSN)

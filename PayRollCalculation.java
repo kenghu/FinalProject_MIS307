@@ -1,7 +1,10 @@
-/*
- * Author Keng Hu, Benjamin Turkett
+/**
+ * Authors: Keng Hu, Benjamin Turkett
+ * Implementation Date: 4-19-2016
+ * Completion Date: 4-25-2016
+ * Description of Class: This class takes care of the calculation part used for payroll program.
  */
-package FinalProjectMIS307;
+package TeamProject;
 
 public class PayRollCalculation {
 	private double emHourlyRate;
@@ -31,8 +34,9 @@ public class PayRollCalculation {
 		emHour = hour;
 		maritialStatus = maritialStatus_P;
 	}
+	
 	/**
-	 * 
+	 * Compute gross pay
 	 * @return monthly gross pay
 	 */
 	public double GrossPay()
@@ -41,8 +45,9 @@ public class PayRollCalculation {
 		return gross;
 		
 	}
+	
 	/**
-	 * 
+	 * Compute social security pay
 	 * @return socialSecurity payment
 	 */
 	public double socialSecurityPay()
@@ -50,8 +55,9 @@ public class PayRollCalculation {
 		double pay = emHourlyRate*emHour*socialSecurityRate;
 		return pay;
 	}
+	
 	/**
-	 * 
+	 * Compute medicare pay
 	 * @return medicare payment
 	 */
 	public double medicarePay()
@@ -59,9 +65,10 @@ public class PayRollCalculation {
 		double pay = emHourlyRate*emHour*healthCareRate;
 		return pay;
 	}
+	
 	/**
-	 * 
-	 * @return federal payment depends on the maritial status
+	 * Compute federal pay
+	 * @return federal payment depends on the marital status
 	 */
 	public double federalPay()
 	{
@@ -104,8 +111,9 @@ public class PayRollCalculation {
 		double pay = emHourlyRate * emHour*rate;
 		return pay;
 	}
+	
 	/**
-	 * 
+	 * Compute State pay
 	 * @return state payment in IOWA
 	 */
 	public double statePay()
@@ -222,8 +230,9 @@ public class PayRollCalculation {
 		}
 		return stateTax;
 	}
+	
 	/**
-	 * 
+	 * Compute net pay
 	 * @return the amount this employee is going to get
 	 */
 	public double netPay()
@@ -231,6 +240,7 @@ public class PayRollCalculation {
 		double pay = emHourlyRate * emHour - socialSecurityPay()-medicarePay()-federalPay()-statePay();
 		return pay;
 	}
+	
 	/**
 	 * type all the information out
 	 */

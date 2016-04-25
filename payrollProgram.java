@@ -1,11 +1,12 @@
 /**
-	Author: Xiaoxian Si && Keng Hu
+	Authors: Xiaoxian Si && Keng Hu
+	Developers: Benjamin Turkett, Omar Farris, Amin Raouf Ghali 
 	Implementation Date: 4-17-2016
-	Description of Class: The class is main class of this payroll program.
+	Description of Class: This class is the main class of this Iowa payroll program.
  */
 
 
-package FinalProjectMIS307;
+package TeamProject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,14 +30,19 @@ public class payrollProgram {
 		{
 			try
 			{
-				System.out.println("A)dd Employee  D)elete Employee  S)earch Employee  Q)uit");
+				System.out.println("A)dd Employee  E)dit Employee  D)elete Employee  S)earch Employee  Q)uit");
 				String input = in.nextLine().toUpperCase();
+				
+				/*
+				 * Add employee with user's inputs
+				 */
+				
 				if (input.equals("A"))
 				{
 					String eSSN = promptForString(in, "Enter new employee SSN: ");
 					if (newAccounts.find(eSSN) != null)
 					{
-						System.out.printf("Error: account %d already exists.\n", eSSN);
+						System.out.printf("Error: account %s already exists.\n", eSSN);
 					}
 					else
 					{
@@ -58,13 +64,58 @@ public class payrollProgram {
 					}
 					in.nextLine();
 				}
+				
+				/*
+				 * Edit employee information with user's inputs
+				 */
+				
+				else if(input.equals("E")){
+					String eSSN = promptForString(in, "Enter employee SSN for edit: ");
+					employeeAccount account = newAccounts.find(eSSN);
+					if (account == null)
+					{
+						System.out.printf("Error: account %s does not exist.\n", eSSN);
+					}
+					else
+					{
+						System.out.println("Employee Found");
+						System.out.println(account.toString());
+						System.out.println("Enter employee new Last Name: ");
+						String newLastName = in.nextLine();
+						account.employeeLastNameChange(newLastName);
+						System.out.println("Enter employee new First Name: ");
+						String newFirstName = in.nextLine();
+						account.employeeFirstNameChange(newFirstName);
+						String empSSN = account.getEmployeeSSN();
+						System.out.println("Enter employee new Address: ");
+						String newAddress = in.nextLine();
+						account.employeeAddressChange(newAddress);
+						System.out.println("Enter employee new Maritial Status: ");
+						String newStatus = in.nextLine();
+						account.employeeMaritialStatusChange(newStatus);
+						System.out.println("Enter employee new Hourly Rate: ");
+						double newHourlyRate = in.nextDouble();
+						account.employeeHourlyRateChange(newHourlyRate);
+						employeeAccount newAccount = new employeeAccount(newLastName, newFirstName, eSSN, newAddress, newStatus, newHourlyRate);
+						newAccounts.addAccount(newAccount);
+						newAccounts.writeAccount(filename);
+						System.out.println("Employee Changed");
+						
+					}
+					in.nextLine();
+				}
+				
+				/*
+				 * Delete employee by user's input
+				 */
+				
 				else if (input.equals("D"))
 				{
 					String eSSN = promptForString(in, "Enter employee SSN for delete: ");
 					employeeAccount account = newAccounts.find(eSSN);
 					if (account == null)
 					{
-						System.out.printf("Error: account %d does not exist.\n", eSSN);
+						System.out.printf("Error: account %s does not exist.\n", eSSN);
 					}
 					else
 					{
@@ -80,6 +131,10 @@ public class payrollProgram {
 					}
 					newAccounts.writeAccount(filename);
 				}
+			
+				/*
+				 * Search employee by user's input
+				 */
 				
 				else if (input.equals("S"))
 				{
@@ -95,6 +150,10 @@ public class payrollProgram {
 						System.out.println();
 						System.out.println(account.toString());
 						System.out.println();
+						
+						/*
+						 * Compute the payroll 
+						 */
 						
 						System.out.println("Enter 'YES' to start payroll calculation");
 						String answer2 = in.nextLine();
@@ -115,12 +174,17 @@ public class payrollProgram {
 							System.out.println("report");
 							String name = account.getEmployeeFirstName()  +" "+ account.getEmployeeLastName();
 							calculation.report(name);
+							
+							/*
+							 * Get the check after calculation
+							 */
+							
 							System.out.println("Do you want to take a look on the check? Enter Yes if you want to do it");
 							String answer3 = in.next();
 							if(answer3.equalsIgnoreCase("YES"))
 							{
 								System.out.println("Please enter the payment in words (Payment: ");
-								System.out.printf("%2",calculation.netPay());
+								System.out.printf("%.2f",calculation.netPay());
 								String paymentString = in.nextLine();
 								System.out.println("Enter the date");
 								String date = in.nextLine();
@@ -145,30 +209,8 @@ public class payrollProgram {
 	}
 	
 	
-	public static int promptForInt(Scanner in, String prompt)
-	{
-		int result = 0;
-		boolean done = false;
-		while (!done)
-		{
-			System.out.print(prompt);
-			String inputStr = in.nextLine().trim();
-			try
-			{
-				result = Integer.parseInt(inputStr);
-				done = true;
-			}
-			catch (NumberFormatException e)
-			{
-				System.out.printf("Error: '%s' was not recognized as an integer. Please try again.\n", inputStr);
-			}
-		}
-		return result;
-	}
-
-	
 	/**
-	 * Ask the user for a double precision number. Repeat until successful.
+	 * Ask the user for a String. Repeat until successful.
 	 * @param in Scanner for reading input
 	 * @param prompt String to show to user
 	 * @return value entered by user

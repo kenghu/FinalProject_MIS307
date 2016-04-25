@@ -1,12 +1,14 @@
 /**
 	Author: Xiaoxian Si
+	Developer: Keng Hu
 	Implementation Date: 4-17-2016
+	Completion Date: 4-25-2016
 	Description of Class: The purpose of this class is to create a employeeAccount
  */
 
 
 
-package FinalProjectMIS307;
+package TeamProject;
 public class employeeAccount {
 	private String empLastName;
 	private String empFirstName;
@@ -17,7 +19,7 @@ public class employeeAccount {
 	private double empHour = 0;
 	
 	/**
-	 * Constructs an employeeAccount with empName, healthcare type, empNumber, basic monthly salary, current balance, empSale, empHourlyRate and employee worked hours.
+	 * Constructs an employeeAccount with empLastName, empFirstName, empSSN, empAddress, empMaritalStatus, and empHourlyRate.
 	 */
 	public employeeAccount(String _empLastName, String _empFirstName, String _empSSN, String _address, String _maritalStatus, double _empHourlyRate){  
 	      empLastName = _empLastName;
@@ -27,9 +29,15 @@ public class employeeAccount {
 	      maritalStatus = _maritalStatus;
 	      empHourlyRate = _empHourlyRate;
 	}
-	public void addHour(double a )
+	
+	/**
+	 * Add hours to employee account
+	 * @param hour
+	 */
+	
+	public void addHour(double hour )
 	{
-		empHour= empHour +a ;
+		empHour= empHour +hour ;
 		System.out.println("Hours have been added. Hour: " + empHour);
 	}
 	
@@ -66,8 +74,8 @@ public class employeeAccount {
 	}
 	
 	/**
-	 * Get the employee's monthly sale amount
-	 * @return the sale amount of the employee
+	 * Get the employee's marital status
+	 * @return the marital status of the employee
 	 */
 	public String getMaritalStatus(){
 		return maritalStatus;
@@ -83,7 +91,7 @@ public class employeeAccount {
 	
 	/**
 	 * Get the employee worked hour
-	 * @return the worked hour 
+	 * @return the worked hour for employee
 	 */
 	public double getEmployeeHour(){
 		return empHour;
@@ -110,13 +118,33 @@ public class employeeAccount {
 	}
 	
 	/**
-	 * Change employee worked hours
-	 * @param _empHour
-	 * @return Changed worked hours
+	 * Change employee address
+	 * @param _address
+	 * @return Changed employee address
 	 */
-	public double employeeHourChange(double _empHour){
-		empHour = _empHour;
-		return empHour;
+	public String employeeAddressChange(String _address){
+		address = _address;
+		return address;
+	}
+	
+	/**
+	 * Change employee marital status
+	 * @param _maritalStatus
+	 * @return Changed employee marital status
+	 */
+	public String employeeMaritialStatusChange(String _maritalStatus){
+		maritalStatus = _maritalStatus;
+		return maritalStatus;
+	}
+	
+	/**
+	 * Change employee hourly rate
+	 * @param _empHourlyRate
+	 * @return Changed employee hourly rate
+	 */
+	public double employeeHourlyRateChange(double _empHourlyRate){
+		empHourlyRate = _empHourlyRate;
+		return empHourlyRate;
 	}
 	
 	/**

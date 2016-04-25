@@ -1,4 +1,12 @@
-package FinalProjectMIS307;
+/**
+ * Author: Amin Raouf Ghali
+ * Developer: Keng Hu
+ * Implementation Date: 4-22-2016
+ * Completion Date: 4-25-2016
+ * Description of Class: Print check for payroll program.
+ */
+
+package TeamProject;
 import java.util.*;
 public class ProcessCheck {
 	private String firstName;
