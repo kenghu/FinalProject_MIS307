@@ -86,7 +86,7 @@ public class payrollProgram {
 					employeeAccount account = newAccounts.find(eSSN);
 					if (account.equals("null"))
 					{
-						System.out.printf("Error: account %d does not exist.\n", eSSN);
+						System.out.printf("Error: account %s does not exist.\n", eSSN);
 					}
 					else
 					{
