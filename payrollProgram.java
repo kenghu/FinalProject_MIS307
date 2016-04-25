@@ -183,6 +183,7 @@ public class payrollProgram {
 							String answer3 = in.next();
 							if(answer3.equalsIgnoreCase("YES"))
 							{
+								in.nextLine();
 								System.out.println("Please enter the payment in words (Payment: ");
 								System.out.printf("%.2f",calculation.netPay());
 								String paymentString = in.nextLine();
