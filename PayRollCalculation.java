@@ -10,14 +10,14 @@ public class PayRollCalculation {
 	private double socialSecurityRate = 0.062;
 	private String maritialStatus;
 	private double stateRate = 0.0036;
-	final double stateOne = 1539/52; //lowest state tax bracket
-	final double stateTwo = 3078/52; //second state tax bracket
-	final double stateThree = 6156/52;
-	final double stateFour = 13851/52;
-	final double stateFive = 23085/52;
-	final double stateSix = 30780/52;
-	final double stateSeven = 46170/52; //second highest state tax bracket
-	final double stateEight = 69255/52; //highest state tax bracket
+	final double stateOne = 1539/12; //lowest state tax bracket
+	final double stateTwo = 3078/12; //second state tax bracket
+	final double stateThree = 6156/12;
+	final double stateFour = 13851/12;
+	final double stateFive = 23085/12;
+	final double stateSix = 30780/12;
+	final double stateSeven = 46170/12; //second highest state tax bracket
+	final double stateEight = 69255/12; //highest state tax bracket
 	
 	/**
 	 * initiate payroll calculation
@@ -242,12 +242,24 @@ public class PayRollCalculation {
 	{
 		System.out.println("Employee Name: "+name);
 		System.out.println(emHourlyRate * emHour);
-		System.out.println("Social Security Payment: " + socialSecurityPay());
-		System.out.println("Health care Payment: " + medicarePay());
-		System.out.println("Federal Payment: " + federalPay());
-		System.out.println("State Tax Payment: "+ statePay());
-		System.out.println("Gross Payment: " + GrossPay());
-		System.out.println("Net Payment: " +netPay());
+		System.out.print("Social Security Payment: ");
+		System.out.printf("%.2f", socialSecurityPay());
+		System.out.println();
+		System.out.print("Health care Payment: ");
+		System.out.printf("%.2f", medicarePay());
+		System.out.println();
+		System.out.print("Federal Payment: ");
+		System.out.printf("%.2f", federalPay());
+		System.out.println();
+		System.out.print("State Tax Payment: ");
+		System.out.printf("%.2f", statePay());
+		System.out.println();
+		System.out.print("Gross Payment: ");
+		System.out.printf("%.2f", GrossPay());
+		System.out.println();
+		System.out.print("Net Payment: ");
+		System.out.printf("%.2f", netPay());
+		System.out.println();
 	}
 
 }
