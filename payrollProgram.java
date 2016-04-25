@@ -44,6 +44,7 @@ public class payrollProgram {
 					if (newAccounts.find(eSSN) != null)
 					{
 						System.out.printf("Error: account %s already exists.\n", eSSN);
+						System.out.println("Hit 'Enter' to back to the main menu.");
 					}
 					else
 					{
@@ -53,7 +54,7 @@ public class payrollProgram {
 						String eFirstName = in.nextLine();
 						System.out.println("Enter employee address: ");
 						String eAddress = in.nextLine();
-						System.out.println("Enter employee marital status: ");
+						System.out.println("Enter employee marital status (Single/Married): ");
 						String eMaritalStatus = in.nextLine();
 						System.out.println("Enter employee hourly rate: ");
 						double eHourlyRate = in.nextDouble();
@@ -76,6 +77,7 @@ public class payrollProgram {
 					if (account == null)
 					{
 						System.out.printf("Error: account %s does not exist.\n", eSSN);
+						System.out.println("Hit 'Enter' to back to the main menu.");
 					}
 					else
 					{
@@ -91,7 +93,7 @@ public class payrollProgram {
 						System.out.println("Enter employee new address: ");
 						String newAddress = in.nextLine();
 						account.employeeAddressChange(newAddress);
-						System.out.println("Enter employee new marital status: ");
+						System.out.println("Enter employee new marital status (Single/Married): ");
 						String newStatus = in.nextLine();
 						account.employeeMaritialStatusChange(newStatus);
 						System.out.println("Enter employee new hourly rate: ");
@@ -117,6 +119,7 @@ public class payrollProgram {
 					if (account == null)
 					{
 						System.out.printf("Error: account %s does not exist.\n", eSSN);
+						System.out.println("Hit 'Enter' to back to the main menu.");
 					}
 					else
 					{
@@ -144,6 +147,7 @@ public class payrollProgram {
 					if (account==null)
 					{
 						System.out.printf("Error: account %s does not exist.\n", eSSN);
+						System.out.println("Hit 'Enter' to back to the main menu.");
 					}
 					else
 					{
@@ -193,6 +197,9 @@ public class payrollProgram {
 								String date = in.nextLine();
 								ProcessCheck check = new ProcessCheck(account.getEmployeeFirstName(),account.getEmployeeLastName(),calculation.netPay(),paymentString,date);
 								check.printCheck();
+								System.out.println();
+								System.out.println();
+								System.out.println("Hit 'Enter' to back to the main menu.");
 									
 										}
 							}
