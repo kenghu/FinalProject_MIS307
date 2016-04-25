@@ -7,6 +7,7 @@
  */
 
 package TeamProject;
+import java.text.DecimalFormat;
 import java.util.*;
 public class ProcessCheck {
 	private String firstName;
@@ -55,7 +56,9 @@ public class ProcessCheck {
 	System.out.println(a + c +b + date + d +"*");
 	String a2="*  PAY TO THE ORDER OF: ";
 	String b2 = firstName + " " + lastName;
-	String c2 = "$ "+ payment;
+	DecimalFormat df = new DecimalFormat ("#,###.##");
+	String df1 = df.format(payment);
+	String c2 = "$ "+ df1;
 	String d2 = "";
 	for(int i = 0; i <= 60 - a2.length() - b2.length();i++)
 		d2 = d2+" ";
