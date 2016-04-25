@@ -55,6 +55,7 @@ public class payrollProgram {
 						newAccounts.writeAccount(filename);
 					
 					}
+					in.nextLine();
 				}
 				else if (input.equals("D"))
 				{
@@ -78,6 +79,7 @@ public class payrollProgram {
 					}
 					newAccounts.writeAccount(filename);
 				}
+				
 				else if (input.equals("S"))
 				{
 					String eSSN = promptForString(in, "Enter employee SSN for search: ");
@@ -111,12 +113,13 @@ public class payrollProgram {
 							calculation.netPay();
 							System.out.println(calculation.toString());
 							System.out.println("report");
-							String name = account.getEmployeeFirstName() + account.getEmployeeLastName();
+							String name = account.getEmployeeFirstName() + ", " + account.getEmployeeLastName();
 							calculation.report(name);
 						}
 						
 						
 					}
+					in.nextLine();
 				}
 				else if (input.equals("Q"))
 				{
