@@ -31,7 +31,7 @@ public class ProcessCheck {
 	for(int i =22;i<99;i++)
 		System.out.print(" ");
 	System.out.println("*");
-	String a1 = "* Gerdin";
+	String a1 = "*  Gerdin";
 	String b1 ="";
 	for (int i = 0; i < 100-a1.length();i++)
 		b1 = b1+" ";

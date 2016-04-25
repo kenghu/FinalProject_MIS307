@@ -6,8 +6,7 @@
 
 
 
-package TeamProject;
-
+package FinalProjectMIS307;
 public class employeeAccount {
 	private String empLastName;
 	private String empFirstName;
@@ -31,7 +30,7 @@ public class employeeAccount {
 	public void addHour(double a )
 	{
 		empHour= empHour +a ;
-		System.out.println("Hours have been added, the total employee hour for this employee is " + empHour);
+		System.out.println("Hours have been added. Hour: " + empHour);
 	}
 	
 	/**

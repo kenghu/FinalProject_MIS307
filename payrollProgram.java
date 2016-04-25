@@ -53,6 +53,7 @@ public class payrollProgram {
 						employeeAccount newAccount = new employeeAccount(eLastName, eFirstName, eSSN, eAddress, eMaritalStatus, eHourlyRate);
 						newAccounts.addAccount(newAccount);
 						newAccounts.writeAccount(filename);
+						System.out.println("Employee added");
 					
 					}
 					in.nextLine();
@@ -111,15 +112,15 @@ public class payrollProgram {
 							calculation.socialSecurityPay();
 							calculation.federalPay();
 							calculation.netPay();
-							System.out.println(calculation.toString());
 							System.out.println("report");
-							String name = account.getEmployeeFirstName() + ", " + account.getEmployeeLastName();
+							String name = account.getEmployeeFirstName()  +" "+ account.getEmployeeLastName();
 							calculation.report(name);
 							System.out.println("Do you want to take a look on the check? Enter Yes if you want to do it");
-							String answer3 = in.nextLine();
+							String answer3 = in.next();
 							if(answer3.equalsIgnoreCase("YES"))
 							{
-								System.out.println("Please enter the payment String(Payment: "+calculation.netPay()+")");
+								System.out.println("Please enter the payment in words (Payment: ");
+								System.out.printf("%2",calculation.netPay());
 								String paymentString = in.nextLine();
 								System.out.println("Enter the date");
 								String date = in.nextLine();

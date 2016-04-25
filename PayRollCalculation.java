@@ -1,7 +1,7 @@
 /*
  * Author Keng Hu, Benjamin Turkett
  */
-package TeamProject;
+package FinalProjectMIS307;
 
 public class PayRollCalculation {
 	private double emHourlyRate;
@@ -241,7 +241,7 @@ public class PayRollCalculation {
 	public void report(String name)
 	{
 		System.out.println("Employee Name: "+name);
-		System.out.println(emHourlyRate * emHour);
+		System.out.println("Gross Pay: " + emHourlyRate * emHour);
 		System.out.print("Social Security Payment: ");
 		System.out.printf("%.2f", socialSecurityPay());
 		System.out.println();
