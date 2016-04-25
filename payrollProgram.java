@@ -84,7 +84,7 @@ public class payrollProgram {
 				{
 					String eSSN = promptForString(in, "Enter employee SSN for search: ");
 					employeeAccount account = newAccounts.find(eSSN);
-					if (account.equals("null"))
+					if (account==null)
 					{
 						System.out.printf("Error: account %s does not exist.\n", eSSN);
 					}
