@@ -40,23 +40,23 @@ public class payrollProgram {
 				
 				if (input.equals("A"))
 				{
-					String eSSN = promptForString(in, "Enter new employee SSN: ");
+					String eSSN = promptForString(in, "Enter new employee's SSN: ");
 					if (newAccounts.find(eSSN) != null)
 					{
 						System.out.printf("Error: account %s already exists.\n", eSSN);
-						System.out.println("Hit 'Enter' to back to the main menu.");
+						System.out.println("Hit 'Enter' to go back to the main menu.");
 					}
 					else
 					{
-						System.out.println("Enter employee last name: ");
+						System.out.println("Enter employee's last name: ");
 						String eLastName = in.nextLine();
-						System.out.println("Enter employee first name: ");
+						System.out.println("Enter employee's first name: ");
 						String eFirstName = in.nextLine();
-						System.out.println("Enter employee address: ");
+						System.out.println("Enter employee's address: ");
 						String eAddress = in.nextLine();
-						System.out.println("Enter employee marital status (Single/Married): ");
+						System.out.println("Enter employee's marital status (Single/Married): ");
 						String eMaritalStatus = in.nextLine();
-						System.out.println("Enter employee hourly rate: ");
+						System.out.println("Enter employee's hourly rate: ");
 						double eHourlyRate = in.nextDouble();
 						employeeAccount newAccount = new employeeAccount(eLastName, eFirstName, eSSN, eAddress, eMaritalStatus, eHourlyRate);
 						newAccounts.addAccount(newAccount);
@@ -72,31 +72,31 @@ public class payrollProgram {
 				 */
 				
 				else if(input.equals("E")){
-					String eSSN = promptForString(in, "Enter employee SSN for edit: ");
+					String eSSN = promptForString(in, "Enter employee's SSN to edit: ");
 					employeeAccount account = newAccounts.find(eSSN);
 					if (account == null)
 					{
 						System.out.printf("Error: account %s does not exist.\n", eSSN);
-						System.out.println("Hit 'Enter' to back to the main menu.");
+						System.out.println("Hit 'Enter' to go back to the main menu.");
 					}
 					else
 					{
 						System.out.println("Employee Found");
 						System.out.println(account.toString());
-						System.out.println("Enter employee new last name: ");
+						System.out.println("Enter employee's new last name: ");
 						String newLastName = in.nextLine();
 						account.employeeLastNameChange(newLastName);
-						System.out.println("Enter employee new first name: ");
+						System.out.println("Enter employee's new first name: ");
 						String newFirstName = in.nextLine();
 						account.employeeFirstNameChange(newFirstName);
 						String empSSN = account.getEmployeeSSN();
-						System.out.println("Enter employee new address: ");
+						System.out.println("Enter employee's new address: ");
 						String newAddress = in.nextLine();
 						account.employeeAddressChange(newAddress);
-						System.out.println("Enter employee new marital status (Single/Married): ");
+						System.out.println("Enter employee's new marital status (Single/Married): ");
 						String newStatus = in.nextLine();
 						account.employeeMaritialStatusChange(newStatus);
-						System.out.println("Enter employee new hourly rate: ");
+						System.out.println("Enter employee's new hourly rate: ");
 						double newHourlyRate = in.nextDouble();
 						account.employeeHourlyRateChange(newHourlyRate);
 						employeeAccount newAccount = new employeeAccount(newLastName, newFirstName, eSSN, newAddress, newStatus, newHourlyRate);
@@ -114,16 +114,16 @@ public class payrollProgram {
 				
 				else if (input.equals("D"))
 				{
-					String eSSN = promptForString(in, "Enter employee SSN for delete: ");
+					String eSSN = promptForString(in, "Enter employee's SSN to delete: ");
 					employeeAccount account = newAccounts.find(eSSN);
 					if (account == null)
 					{
 						System.out.printf("Error: account %s does not exist.\n", eSSN);
-						System.out.println("Hit 'Enter' to back to the main menu.");
+						System.out.println("Hit 'Enter' to go back to the main menu.");
 					}
 					else
 					{
-						System.out.println("Sure want to remove the employee below?");
+						System.out.println("Are you sure you want to remove the employee below?");
 						System.out.println(account.toString());
 						System.out.println("Enter 'YES' to remove");
 						String answer1 = in.nextLine();
@@ -142,16 +142,16 @@ public class payrollProgram {
 				
 				else if (input.equals("S"))
 				{
-					String eSSN = promptForString(in, "Enter employee SSN for search: ");
+					String eSSN = promptForString(in, "Enter employee's SSN for search: ");
 					employeeAccount account = newAccounts.find(eSSN);
 					if (account==null)
 					{
 						System.out.printf("Error: account %s does not exist.\n", eSSN);
-						System.out.println("Hit 'Enter' to back to the main menu.");
+						System.out.println("Hit 'Enter' to go back to the main menu.");
 					}
 					else
 					{
-						System.out.println("Found Employee");
+						System.out.println("Employee Found");
 						System.out.println(account.toString());
 					
 						/*
@@ -161,7 +161,7 @@ public class payrollProgram {
 						System.out.println("Enter 'YES' to start payroll calculation");
 						String answer2 = in.nextLine();
 						if (answer2.equalsIgnoreCase("YES")){
-							System.out.println("Enter employee worked hours in this pay period: ");
+							System.out.println("Enter employee's work hours for this pay period: ");
 							double hourWorked = in.nextDouble();
 							account.addHour(hourWorked);
 							newAccounts.writeAccount(filename);
@@ -200,7 +200,7 @@ public class payrollProgram {
 								check.printCheck();
 								System.out.println();
 								System.out.println();
-								System.out.println("Hit 'Enter' to back to the main menu.");
+								System.out.println("Hit 'Enter' to go back to the main menu.");
 									
 										}
 							}
