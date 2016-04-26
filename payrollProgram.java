@@ -131,6 +131,7 @@ public class payrollProgram {
 							newAccounts.removeAccount(account);
 							System.out.println("Employee Information Removed");
 						}
+						else System.out.println("Account deletion aborted");
 						
 					}
 					newAccounts.writeAccount(filename);
@@ -204,6 +205,8 @@ public class payrollProgram {
 									
 										}
 							}
+							else {System.out.println("Payroll calculation aborted.");
+						System.out.println("Hit 'Enter' to back to the main menu.");}
 						
 					}
 					in.nextLine();
