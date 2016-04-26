@@ -190,8 +190,9 @@ public class payrollProgram {
 							if(answer3.equalsIgnoreCase("YES"))
 							{
 								in.nextLine();
-								System.out.println("Please enter the payment in words Payment: ");
+								System.out.print("Please enter the payment in words Payment: ");
 								System.out.printf("%.2f",calculation.netPay());
+								System.out.println();
 								String paymentString = in.nextLine();
 								System.out.println("Enter the date");
 								String date = in.nextLine();
